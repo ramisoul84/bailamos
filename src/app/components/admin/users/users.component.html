@@ -1,0 +1,22 @@
+<section>
+  <table>
+    <thead>
+      <th>FirstName</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Created At</th>
+      <th>Last Login At</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.createdAt }}</td>
+        <td>{{ user.lastLoginAt }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

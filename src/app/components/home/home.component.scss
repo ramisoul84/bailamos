@@ -1,0 +1,55 @@
+@import "../../../variables.scss";
+
+.parallax {
+  background-image: url("https://www.w3schools.com/howto/img_parallax.jpg");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.motto {
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  left: 0;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 60vw;
+  color: $BgDarkColor;
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: 1px 1px 1px black;
+}
+.info {
+  display: flex;
+  text-align: center;
+  padding: 14rem 10rem;
+  height: 50rem;
+  color: black;
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 991px) {
+  .motto {
+    width: 80vw;
+    font-size: 3rem;
+  }
+  .info {
+    font-size: 2rem;
+    padding: 6rem 1rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .motto {
+    width: 80vw;
+    font-size: 2rem;
+  }
+  .info {
+    font-size: 2rem;
+  }
+}

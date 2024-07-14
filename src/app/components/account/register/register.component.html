@@ -1,1 +1,60 @@
-<p>register works!</p>
+<div class="register">
+  <h1>Register</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="inputbox">
+      <label>First Name</label>
+      <input
+        type="text"
+        required="required"
+        formControlName="firstName"
+        placeholder="enter your name"
+      />
+    </div>
+    <div class="inputbox">
+      <label>Last Name</label>
+      <input
+        type="text"
+        formControlName="lastName"
+        placeholder="enter your last name"
+      />
+    </div>
+    <div class="inputbox">
+      <label for="pet-select">Gender</label>
+      <select formControlName="gender">
+        <option value="">--Please choose gender--</option>
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+      </select>
+    </div>
+    <div class="inputbox">
+      <label>Email</label>
+      <input
+        type="text"
+        required="required"
+        formControlName="email"
+        placeholder="enter an email"
+      />
+    </div>
+    <div class="inputbox">
+      <label>Password</label>
+      <input
+        type="text"
+        required="required"
+        formControlName="password"
+        placeholder="enter a password"
+      />
+    </div>
+    <div class="terms">
+      <input type="checkbox" />
+      I agree all statements in Terms of service
+    </div>
+    <div class="inputbox">
+      <input type="submit" value="REGISTER" [disabled]="registerForm.invalid" />
+    </div>
+
+    <div>
+      <p>Already have an account! <a routerLink="/login">Login</a></p>
+    </div>
+  </form>
+  <div></div>
+</div>

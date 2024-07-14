@@ -1,0 +1,44 @@
+@import "../../../variables.scss";
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  background-color: rgba(0, 0, 0, 0.81);
+  z-index: 9;
+  .logo {
+    display: flex;
+    font-size: 2rem;
+    font-family: $LogoFontFamily;
+    span {
+      display: block;
+      height: 0.6rem;
+      width: 0.6rem;
+      border-radius: 0.6rem;
+      background-color: $BgColor;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .icon {
+    height: 2rem;
+    fill: $BgColor;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  header {
+    padding: 0 1rem;
+  }
+}
