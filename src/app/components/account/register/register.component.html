@@ -1,60 +1,85 @@
 <div class="register">
-  <h1>Register</h1>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="inputbox">
-      <label>First Name</label>
+    <caption>
+      REGISTRATION FORM
+    </caption>
+    <div class="name">
       <input
         type="text"
-        required="required"
+        placeholder="First Name *"
         formControlName="firstName"
-        placeholder="enter your name"
+        required
       />
+      <input type="text" placeholder="Last Name" formControlName="lastName" />
     </div>
-    <div class="inputbox">
-      <label>Last Name</label>
-      <input
-        type="text"
-        formControlName="lastName"
-        placeholder="enter your last name"
-      />
-    </div>
-    <div class="inputbox">
-      <label for="pet-select">Gender</label>
-      <select formControlName="gender">
-        <option value="">--Please choose gender--</option>
+    <div class="input-wrapper">
+      <select formControlName="gender" required>
+        <option value="" [defaultSelected]="true">Select Gender *</option>
         <option value="MALE">Male</option>
         <option value="FEMALE">Female</option>
       </select>
     </div>
-    <div class="inputbox">
-      <label>Email</label>
-      <input
-        type="text"
-        required="required"
-        formControlName="email"
-        placeholder="enter an email"
-      />
+    <div class="input-wrapper">
+      <input type="text" placeholder="Email *" formControlName="email" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 16 16">
+        <path
+          d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"
+        />
+      </svg>
     </div>
-    <div class="inputbox">
-      <label>Password</label>
+    <div class="input-wrapper">
       <input
-        type="text"
-        required="required"
+        type="password"
+        placeholder="Password *"
         formControlName="password"
-        placeholder="enter a password"
+        required
       />
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 16 16">
+        <path
+          d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"
+        />
+      </svg>
     </div>
+    <div class="input-wrapper">
+      <input
+        type="password"
+        placeholder="Confirm Password *"
+        formControlName="passwordConfirm"
+        required
+      />
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 16 16">
+        <path
+          d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"
+        />
+      </svg>
+    </div>
+    <span
+      *ngIf="
+        registerForm.controls['passwordConfirm'].dirty ||
+        registerForm.controls['passwordConfirm'].touched
+      "
+      class="err"
+    >
+      <span
+        *ngIf="registerForm.controls['passwordConfirm'].errors?.['required']; else passMismatch"
+      >
+        *Confirm Password is Required
+      </span>
+      <ng-template #passMismatch>
+        <span *ngIf="registerForm.errors?.['passwordMismatchError']">
+          *Password Doesn't matches
+        </span>
+      </ng-template>
+    </span>
     <div class="terms">
-      <input type="checkbox" />
-      I agree all statements in Terms of service
-    </div>
-    <div class="inputbox">
-      <input type="submit" value="REGISTER" [disabled]="registerForm.invalid" />
+      <p>terms</p>
+      <input type="checkbox" class="x" />
+      <p>Accept all terms of use</p>
     </div>
 
     <div>
-      <p>Already have an account! <a routerLink="/login">Login</a></p>
+      <input type="submit" value="Register" [disabled]="registerForm.invalid" />
     </div>
+    <p>Already have an account! <a routerLink="/login">Login</a></p>
   </form>
-  <div></div>
 </div>

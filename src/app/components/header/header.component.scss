@@ -27,6 +27,18 @@ header {
       cursor: pointer;
     }
   }
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    a {
+      text-decoration: none;
+      color: $FontColor;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
   .icon {
     height: 2rem;
     fill: $BgColor;

@@ -8,6 +8,7 @@ export interface User {
   lastName?: string;
   gender: Gender;
   email: string;
+  isAdmin: boolean;
   createdAt: Date;
   lastLoginAt: Date;
 }
@@ -28,7 +29,7 @@ export interface RegisterUserDto {
 export interface ResponseLoginDto {
   user: {
     id: string;
-    email: string;
+    isAdmin: boolean;
   };
   accessToken: string;
 }

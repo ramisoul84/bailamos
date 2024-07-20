@@ -1,0 +1,17 @@
+<section>
+  <div class="links">
+    <a routerLink="/profile/edit">Edit</a>
+    <a routerLink="/admin" *ngIf="isAdmin">Admin</a>
+    <a (click)="logout()">Logout</a>
+  </div>
+  <p>You may like</p>
+  <div class="matches">
+    <div *ngFor="let user of users" class="match">
+      <img
+        src="https://pp.userapi.com/dfvmQ4fDCgEfMVVLlOKBUsaUdh7QZww8ME4IHg/2G-nzM7_pH4.png"
+      />
+
+      <p>{{ user.firstName }}</p>
+    </div>
+  </div>
+</section>

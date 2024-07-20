@@ -13,6 +13,20 @@ export class StorageService {
     localStorage.removeItem(this.storageName);
   }
 
+  getToken(): string | null {
+    const storage = localStorage.getItem(this.storageName);
+    if (storage) {
+      return JSON.parse(storage).accessToken;
+    } else return null;
+  }
+
+  getIsAdmin(): boolean | null {
+    const storage = localStorage.getItem(this.storageName);
+    if (storage) {
+      return JSON.parse(storage).user.isAdmin;
+    } else return null;
+  }
+
   getUser() {
     return JSON.parse(localStorage.getItem(this.storageName)!);
   }
